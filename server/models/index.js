@@ -1,3 +1,4 @@
-const Profile = require('./Profile');
+const Menu = require('./Menu');
+const Cashier = require('./Cashier');
 
-module.exports = { Profile };
+module.exports = { Menu, Cashier };
