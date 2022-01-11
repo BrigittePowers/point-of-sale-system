@@ -1,4 +1,6 @@
-const Menu = require('./Menu');
 const Cashier = require('./Cashier');
+const Item = require('./Item');
+const Order = require('./Order');
+const Category = require('./Category');
 
-module.exports = { Menu, Cashier };
+module.exports = { Item, Cashier, Order, Category };

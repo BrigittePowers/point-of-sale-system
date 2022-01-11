@@ -1,21 +1,11 @@
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client';
 
-export const GET_ME = gql`
+export const QUERY_ITEMS= gql`
+	query getItems
 	{
-		me {
+		items(category: $category) {
 			_id
-			username
-			email
-			bookCount
-			savedBooks {
-				# _id
-				bookId
-				authors
-				image
-				link
-				title
-				description
-			}
+			name
 		}
 	}
 `;

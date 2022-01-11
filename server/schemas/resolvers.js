@@ -1,43 +1,37 @@
-const { Profile } = require('../models');
+const { Cashier, Order, Item, Category } = require('../models');
+
+//TODO: finish cashiers and items
 
 const resolvers = {
-  Query: {
-    profiles: async () => {
-      return Profile.find();
-    },
+	Query: {
+		categories: async () => {
+			return await Category.find();
+		},
+		items: async (parent, { category, name, options }) => {
+			if (category) {
+				params.category = category;
+			}
 
-    profile: async (parent, { profileId }) => {
-      return Profile.findOne({ _id: profileId });
-    },
-  },
+			if (name) {
+				params.name = name;
+			}
 
-  Mutation: {
-    addProfile: async (parent, { name }) => {
-      return Profile.create({ name });
-    },
-    addSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        {
-          $addToSet: { skills: skill },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    },
-    removeProfile: async (parent, { profileId }) => {
-      return Profile.findOneAndDelete({ _id: profileId });
-    },
-    removeSkill: async (parent, { profileId, skill }) => {
-      return Profile.findOneAndUpdate(
-        { _id: profileId },
-        { $pull: { skills: skill } },
-        { new: true }
-      );
-    },
-  },
+			if (options) {
+				param.options = option;
+			}
+
+			return await Item.find(params).populate('category');
+		},
+		cashiers: async () => {
+			return Cashier.find();
+		},
+		orders: async () => {
+			return Order.find();
+		},
+		item: async (parent, { _id }) => {
+			return await Item.findById(_id).populate('category');
+		},
+	},
 };
 
 module.exports = resolvers;

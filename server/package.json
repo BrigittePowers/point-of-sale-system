@@ -15,7 +15,6 @@
 		"apollo-server-express": "^2.15.0",
 		"bcrypt": "^4.0.1",
 		"express": "^4.17.1",
-		"faker": "^5.5.3",
 		"graphql": "^15.8.0",
 		"jsonwebtoken": "^8.5.1",
 		"moment": "^2.29.1",
