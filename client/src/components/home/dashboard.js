@@ -5,8 +5,13 @@ import Menu from '../tabs/menu';
 import Mods from '../tabs/mods';
 import food from '../../demofood';
 
+import { useQuery } from '@apollo/client';
+import { QUERY_ITEMS } from '../../utils/queries';
+
 export default function Dashboard() {
 	const [currentTab, setCurrentTab] = useState('Menu');
+	const { data } = useQuery(QUERY_ITEMS);
+	const items = data?.items || [];
 
 	const handleTabChange = (tab) => setCurrentTab(tab);
 
@@ -14,7 +19,7 @@ export default function Dashboard() {
 		if (currentTab === 'Menu') {
 			return (
 				<Menu
-					food={food}
+					items={items}
 					currentTab={currentTab}
 					handleTabChange={handleTabChange}
 				/>

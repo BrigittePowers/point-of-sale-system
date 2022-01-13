@@ -1,6 +1,4 @@
 const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
-const { Item } = require('.');
 
 const orderSchema = new Schema({
 	purchaeDate: {
@@ -12,7 +10,7 @@ const orderSchema = new Schema({
 		required: true,
 		unique: true,
 	},
-	item: [
+	items: [
 		{
 			type: Schema.Types.ObjectId,
 			ref: 'Item',

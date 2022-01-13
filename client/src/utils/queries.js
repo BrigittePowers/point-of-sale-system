@@ -1,11 +1,18 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_ITEMS= gql`
-	query getItems
+export const QUERY_ITEMS = gql`
 	{
-		items(category: $category) {
-			_id
+		items {
 			name
+			acronym
+			price
+			type
+			options {
+				name
+				type
+				adjust
+				category
+			}
 		}
 	}
 `;

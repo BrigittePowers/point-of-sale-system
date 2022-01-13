@@ -2,23 +2,25 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 	type Item {
-		__id: ID
+		_id: ID
 		name: String
 		acronym: String
-		defaults: [String]!
-		modifiers: [String]!
-		price: Integer
+		price: Float
+		type: String
+		options: [Option]
 	}
 
-	type Cashier {
-		__id: ID
+	type Option {
+		_id: ID
 		name: String
-		password: Number
+		type: String
+		adjust: Float
+		category: String
 	}
 
 	type Query {
-		cashiers: [Cashier]
 		items: [Item]
+		options: [Option]
 	}
 `;
 
