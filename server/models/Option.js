@@ -14,9 +14,13 @@ const optionSchema = new Schema({
 	},
 	category: [
 		{
-		type: String,
-		required: true,
-	}],
+			type: String,
+			required: true,
+		},
+	],
+	added: {
+		type: Boolean,
+	},
 });
 
 const Option = model('Option', optionSchema);

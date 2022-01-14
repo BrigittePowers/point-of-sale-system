@@ -1,14 +1,12 @@
 const { Schema, model } = require('mongoose');
 
 const orderSchema = new Schema({
-	purchaeDate: {
+	purchaseDate: {
 		type: Date,
 		default: Date.now,
 	},
 	name: {
 		type: String,
-		required: true,
-		unique: true,
 	},
 	items: [
 		{
@@ -20,9 +18,6 @@ const orderSchema = new Schema({
 		type: String,
 	},
 	total: {
-		type: Number,
-	},
-	tip: {
 		type: Number,
 	},
 });

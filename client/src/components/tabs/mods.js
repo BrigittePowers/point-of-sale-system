@@ -6,23 +6,24 @@ export default function mods({
 	currentTab,
 	handleTabChange,
 }) {
+	// generate header sections for mods page
 	function generateSections(opt) {
 		let types = [];
 
-		// const unique = [...new Set(types)];
-
+		// map through options and create an array of
+		// types that each option may have
 		opt.map((opt) => {
 			let typeList = types.push(opt.type);
 			return typeList;
 		});
 
+		// remove duplicates
 		let unique = [...new Set(types)];
 
 		return unique;
-
-		// console.log(cats);
 	}
 
+	//invoke
 	let sections = generateSections(currentCat);
 
 	return (
@@ -43,12 +44,6 @@ export default function mods({
 				</div>
 			))}
 
-			{/* {currentCat.map((opt) => (
-				<button key={opt._id} onClick={() => handleTabChange('Mods')}>
-					<div>{opt.name}</div>
-					{opt.adjust > 0 && <div>{opt.adjust}</div>}
-				</button>
-			))} */}
 			<button onClick={() => handleTabChange('Menu')}>Return</button>
 		</div>
 	);

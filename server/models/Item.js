@@ -20,6 +20,11 @@ const itemSchema = new Schema({
 		required: true,
 	},
 	options: [Option.schema],
+	defaults: [
+		{
+			type: String,
+		},
+	],
 });
 
 const Item = model('Item', itemSchema);

@@ -3,48 +3,56 @@
 		"name": "American",
 		"type": "Cheese",
 		"adjust": 0.5,
-		"category": ["Burger", "Sandwich"]
+		"category": ["Burger", "Sandwich"],
+		"added": false
 	},
 	{
 		"name": "Provolone",
 		"type": "Cheese",
 		"adjust": 0.5,
-		"category": ["Burger", "Sandwich"]
+		"category": ["Burger", "Sandwich"],
+		"added": false
 	},
 	{
 		"name": "Mayo",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": ["Burger"]
+		"category": ["Burger"],
+		"added": false
 	},
 	{
 		"name": "Mustard",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": ["Burger"]
+		"category": ["Burger"],
+		"added": false
 	},
 	{
 		"name": "Lettuce",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": ["Burger"]
+		"category": ["Burger"],
+		"added": false
 	},
 	{
 		"name": "Tomato",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": ["Burger"]
+		"category": ["Burger"],
+		"added": false
 	},
 	{
 		"name": "Pickle",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": ["Burger"]
+		"category": ["Burger"],
+		"added": false
 	},
 	{
 		"name": "Onion",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": ["Burger"]
+		"category": ["Burger"],
+		"added": false
 	}
 ]

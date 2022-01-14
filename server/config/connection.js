@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/point-of-sale',
+  process.env.MONGODB_URI || 'mongodb://localhost/pos',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

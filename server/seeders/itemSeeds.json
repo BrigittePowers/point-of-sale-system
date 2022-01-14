@@ -3,12 +3,14 @@
 		"name": "Hamburger",
 		"acronym": "HB",
 		"price": 8.79,
-		"type": "Burger"
+		"type": "Burger",
+		"defaults": ["Mayo", "Mustard"]
 	},
 	{
 		"name": "BLT",
 		"acronym": "BLT",
 		"price": 5.99,
-		"type": "Sandwich"
+		"type": "Sandwich",
+		"defaults": ["Provolone"]
 	}
 ]

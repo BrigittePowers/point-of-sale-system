@@ -1,6 +1,6 @@
 const db = require('../config/connection');
-const { Item, Cashier, Order, Option } = require('../models');
-const cashierSeeds = require('./cashierSeeds.json');
+const { Item, User, Order, Option } = require('../models');
+const userSeeds = require('./userSeeds.json');
 const itemSeeds = require('./itemSeeds.json');
 const orderSeeds = require('./orderSeeds.json');
 const optionSeeds = require('./optionSeeds.json');
@@ -8,28 +8,21 @@ const optionSeeds = require('./optionSeeds.json');
 db.once('open', async () => {
 	try {
 		// clean databse
-		await Cashier.deleteMany({});
+		await User.deleteMany({});
 		await Item.deleteMany({});
 		await Order.deleteMany({});
 		await Option.deleteMany({});
 
 		// bulk create
-		// const cashiers = await Cashier.insertMany(cashierSeeds);
+		const User = await User.insertMany(userSeeds);
 		const items = await Item.insertMany(itemSeeds);
-		// const orders = await Order.insertMany(orderSeeds);
-		// const category = await Category.insertMany(categorySeeds);
+		const orders = await Order.insertMany(orderSeeds);
 		const options = await Option.insertMany(optionSeeds);
 
 		// assign option categories to item types
 		for (newOption of options) {
 			for (x = 0; x < items.length; x++) {
-				// if (items[x].type === newOption.category) {
-
 				if (newOption.category.indexOf(items[x].type) !== -1) {
-					console.log(
-						'Matching: ' + items[x].name + ' to ' + newOption.name,
-					);
-
 					const tempItem = items[x];
 
 					tempItem.options.push(newOption);
@@ -52,7 +45,7 @@ db.once('open', async () => {
 		// 	await tempCashier.save();
 		// }
 
-		console.log('all done!');
+		console.log('Seeding done!');
 		process.exit(0);
 	} catch (err) {
 		throw err;
