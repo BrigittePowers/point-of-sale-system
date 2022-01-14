@@ -3,4 +3,6 @@ const router = require('express').Router();
 
 // router.use('/users', userRoutes);
 
+router.route('/').post();
+
 module.exports = router;

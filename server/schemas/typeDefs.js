@@ -15,7 +15,7 @@ const typeDefs = gql`
 		name: String
 		type: String
 		adjust: Float
-		category: String
+		category: [String]
 	}
 
 	type Query {

@@ -12,10 +12,11 @@ const optionSchema = new Schema({
 	adjust: {
 		type: Number,
 	},
-	category: {
+	category: [
+		{
 		type: String,
 		required: true,
-	},
+	}],
 });
 
 const Option = model('Option', optionSchema);

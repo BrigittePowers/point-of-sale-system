@@ -4,5 +4,11 @@
 		"acronym": "HB",
 		"price": 8.79,
 		"type": "Burger"
+	},
+	{
+		"name": "BLT",
+		"acronym": "BLT",
+		"price": 5.99,
+		"type": "Sandwich"
 	}
 ]

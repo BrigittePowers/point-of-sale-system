@@ -2,49 +2,49 @@
 	{
 		"name": "American",
 		"type": "Cheese",
-		"adjust": 11.99,
-		"category": "Burger"
+		"adjust": 0.5,
+		"category": ["Burger", "Sandwich"]
 	},
 	{
 		"name": "Provolone",
 		"type": "Cheese",
-		"adjust": 0.51,
-		"category": "Burger"
+		"adjust": 0.5,
+		"category": ["Burger", "Sandwich"]
 	},
 	{
 		"name": "Mayo",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": "Burger"
+		"category": ["Burger"]
 	},
 	{
 		"name": "Mustard",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": "Burger"
+		"category": ["Burger"]
 	},
 	{
 		"name": "Lettuce",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": "Burger"
+		"category": ["Burger"]
 	},
 	{
 		"name": "Tomato",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": "Burger"
+		"category": ["Burger"]
 	},
 	{
 		"name": "Pickle",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": "Burger"
+		"category": ["Burger"]
 	},
 	{
 		"name": "Onion",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": "Burger"
+		"category": ["Burger"]
 	}
 ]

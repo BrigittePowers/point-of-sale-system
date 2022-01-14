@@ -20,13 +20,12 @@ db.once('open', async () => {
 		// const category = await Category.insertMany(categorySeeds);
 		const options = await Option.insertMany(optionSeeds);
 
-		console.log(items[0]);
-		console.log(options[0]);
-
 		// assign option categories to item types
 		for (newOption of options) {
 			for (x = 0; x < items.length; x++) {
-				if (items[x].type === newOption.category) {
+				// if (items[x].type === newOption.category) {
+
+				if (newOption.category.indexOf(items[x].type) !== -1) {
 					console.log(
 						'Matching: ' + items[x].name + ' to ' + newOption.name,
 					);
