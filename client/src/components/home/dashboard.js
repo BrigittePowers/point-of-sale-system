@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { useMutation } from '@apollo/react-hooks';
 import Menu from '../tabs/menu';
 import Mods from '../tabs/mods';
@@ -6,6 +6,8 @@ import Ticket from '../tabs/ticket';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_ITEMS } from '../../utils/queries';
+
+//TODO: import ID for each menu item for mapping
 
 export default function Dashboard() {
 	// change tabs from menu or mods
@@ -21,15 +23,21 @@ export default function Dashboard() {
 	// display where we add pendingOrderItem to the pending ticket array
 	const [pendingTicket, setPendingTicket] = useState([]);
 
+	useEffect(() => {
+		if (Object.keys(pendingOrderItem).length > 0) {
+			const generateTicket = (pendingOrderItem) => {
+				setPendingTicket((p) => [...p, { ...pendingOrderItem }]);
+			};
+
+			generateTicket(pendingOrderItem);
+		}
+	}, [pendingOrderItem]);
+
 	const generateOrderItem = (menuItem, menuMod) => {
 		setPendingOrderItem({
 			name: selectedMenuItem,
 			mods: [{ ...selectedMenuMod }],
 		});
-	};
-
-	const generateTicket = (pendingOrderItem) => {
-		setPendingTicket([...pendingTicket, { ...pendingOrderItem }]);
 	};
 
 	// generateOrderItem(menuItem, menuMod);
@@ -81,7 +89,7 @@ export default function Dashboard() {
 					handleCatChange={handleCatChange}
 					handleSelectedMenuMod={handleSelectedMenuMod}
 					generateOrderItem={generateOrderItem}
-					generateTicket={generateTicket}
+					// generateTicket={generateTicket}
 				/>
 			);
 		}

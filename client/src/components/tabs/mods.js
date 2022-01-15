@@ -88,7 +88,7 @@ export default function mods({
 					handleTabChange('Menu');
 					handleSelectedMenuItemChange('');
 					handleSelectedMenuMod([]);
-					generateTicket(pendingOrderItem);
+					// generateTicket(pendingOrderItem);
 				}}
 			>
 				Confirm
