@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Adminbar from '../components/home/adminbar';
-import Navbar from '../components/home/navbar';
 import Dashboard from '../components/home/dashboard';
 import Orders from '../components/home/orderhistory';
 import Footer from '../components/home/footer';
@@ -31,15 +30,12 @@ export default function Home() {
 
 	return (
 		<div>
-			<Adminbar />
-			<div className='box'>
-				<Navbar
-					currentTab={currentTab}
-					handleTabChange={handleTabChange}
-				/>
-				{renderTab()}
-				<Footer />
-			</div>
+			<Adminbar
+				currentTab={currentTab}
+				handleTabChange={handleTabChange}
+			/>
+			<div className='box'>{renderTab()}</div>
+			<Footer />
 		</div>
 	);
 }

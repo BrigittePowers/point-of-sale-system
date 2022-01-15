@@ -1,17 +1,150 @@
+:root {
+	--dark-mode-bg: #1a1a1d;
+	--readable-font: #ffffff;
+	--subtitle: #4e4e50;
+	--dark: #6f2232;
+	--med: #950740;
+	--light: #c3073f;
+}
+
 body {
-  font-family: 'Rubik', sans-serif;
+	background-color: var(--dark-mode-bg);
+	color: var(--readable-font);
+}
+/* Buttons */
+button {
+	color: var(--readable-font);
+	background-color: var(--dark-mode-bg);
+	border: 2px solid var(--light);
+	width: 150px;
+	height: 50px;
+	border-radius: 5px;
+	margin: 5px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Rubik Mono One', sans-serif;
+.cancel-btn {
+	background-color: #c62828;
 }
 
-.small {
-  font-weight: 300;
-  font-style: italic;
+.confirm-btn {
+	background-color: #00897b;
+}
+
+.button-on {
+	background-color: var(--dark);
+}
+
+/* Admin Bar */
+.admin-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 10vh;
+	background-color: var(--dark);
+}
+
+.admin-basic {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* Dashboard */
+.dashboard {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	height: 85vh;
+}
+
+/* Menu */
+.menu-box {
+	width: 100%;
+}
+
+/* Mods */
+.mod-window {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
+
+.btn-box {
+	align-self: flex-end;
+}
+
+.mod-box {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 100%;
+}
+
+.section-list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.section-name {
+	font-weight: bold;
+	font-size: 120%;
+	text-align: center;
+}
+
+/* Ticket */
+.ticket-window {
+	display: flex;
+	flex-direction: column;
+	width: 40vh;
+	height: 100%;
+	background-color: var(--subtitle);
+	border: 2px solid var(--light);
+}
+
+.ticket-btn-box {
+	align-self: flex-end;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.ticket-btn-box button {
+	width: 80px;
+}
+
+.order-num {
+	text-align: center;
+}
+
+.order-wrapper {
+	height: 100%;
+}
+
+.order-in-window {
+	text-align: left;
+	text-indent: 10%;
+}
+
+.order-food-name {
+	text-transform: uppercase;
+	text-decoration-line: underline;
+	font-weight: bold;
+}
+
+.order-mods {
+	text-indent: 20%;
+}
+
+/* Footer */
+.footer {
+	background-color: var(--dark);
+	text-align: center;
+	font-style: oblique;
+	font-size: 12px;
+	height: 5vh;
 }

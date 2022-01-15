@@ -22,6 +22,10 @@ export default function Dashboard() {
 	const [pendingOrderItem, setPendingOrderItem] = useState({});
 	// display where we add pendingOrderItem to the pending ticket array
 	const [pendingTicket, setPendingTicket] = useState([]);
+	// find the price of items in the order
+	const [pendingMenuCost, setPendingMenuCost] = useState(0);
+	const [pendingModsCost, setPendingModsCost] = useState(0);
+	const [pendingSubTotal, setPendingSubTotal] = useState(0);
 
 	useEffect(() => {
 		if (Object.keys(pendingOrderItem).length > 0) {
@@ -33,24 +37,16 @@ export default function Dashboard() {
 		}
 	}, [pendingOrderItem]);
 
+	// useEffect(() => {
+
+	// }, [pendingSubTotal])
+
 	const generateOrderItem = (menuItem, menuMod) => {
 		setPendingOrderItem({
 			name: selectedMenuItem,
-			mods: [{ ...selectedMenuMod }],
+			mods: [...selectedMenuMod],
 		});
 	};
-
-	// generateOrderItem(menuItem, menuMod);
-	// generateTicket(pendingOrderItem);
-	// pending ticket is an array of objects with matching IDs from the top menuitem that was clicked
-	//we can now slice it out of the array when adding mods
-	// findindex where i.id === item.id
-
-	//new setState var b  [...a, new items]
-	// pendingOrder =[{name: Hamburger, Mods: }]
-	// const settyopelevelitem [
-	// add top level item
-	//
 
 	// Query for items saved to server
 	const { data } = useQuery(QUERY_ITEMS);
@@ -61,6 +57,8 @@ export default function Dashboard() {
 	const handleSelectedMenuItemChange = (menuItem) =>
 		setSelectedMenuItem(menuItem);
 	const handleSelectedMenuMod = (menuMod) => setSelectedMenuMod(menuMod);
+	const handlePendingMenuCost = (item) => setPendingMenuCost(item);
+	const handlePendingModsCost = (item) => setPendingModsCost(item);
 
 	const renderTab = () => {
 		if (currentTab === 'Menu') {
@@ -72,6 +70,7 @@ export default function Dashboard() {
 					handleTabChange={handleTabChange}
 					handleCatChange={handleCatChange}
 					handleSelectedMenuItemChange={handleSelectedMenuItemChange}
+					handlePendingMenuCost={handlePendingMenuCost}
 				/>
 			);
 		}
@@ -84,20 +83,25 @@ export default function Dashboard() {
 					selectedMenuItem={selectedMenuItem}
 					selectedMenuMod={selectedMenuMod}
 					pendingOrderItem={pendingOrderItem}
+					pendingModsCost={pendingModsCost}
 					handleSelectedMenuItemChange={handleSelectedMenuItemChange}
 					handleTabChange={handleTabChange}
 					handleCatChange={handleCatChange}
 					handleSelectedMenuMod={handleSelectedMenuMod}
 					generateOrderItem={generateOrderItem}
-					// generateTicket={generateTicket}
+					handlePendingMenuCost={handlePendingMenuCost}
+					handlePendingModsCost={handlePendingModsCost}
 				/>
 			);
 		}
 	};
 
 	return (
-		<div>
-			<Ticket pendingTicket={pendingTicket} />
+		<div className='dashboard'>
+			<Ticket
+				pendingSubTotal={pendingSubTotal}
+				pendingTicket={pendingTicket}
+			/>
 			{renderTab()}
 		</div>
 	);

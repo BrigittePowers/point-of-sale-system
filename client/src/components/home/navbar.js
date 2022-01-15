@@ -5,7 +5,7 @@ export default function navbar({ currentTab, handleTabChange }) {
 	return (
 		<div>
 			<button onClick={() => handleTabChange('Dashboard')}>Main</button>
-			<button onClick={() => handleTabChange('Orders')}>History</button>
+			<button onClick={() => handleTabChange('Orders')}>Recall</button>
 		</div>
 	);
 }
