@@ -1,20 +1,28 @@
 import React from 'react';
 
-export default function Menu({ items, handleTabChange, handleCatChange }) {
+export default function Menu({
+	items,
+	handleTabChange,
+	handleCatChange,
+	handleSelectedMenuItemChange,
+}) {
 	return (
 		<div>
-			{items.map((item) => (
-				<button
-					key={item._id}
-					onClick={() => {
-						handleTabChange('Mods');
-						handleCatChange(item.options);
-					}}
-				>
-					<div>{item.acronym}</div>
-					<div>{item.price}</div>
-				</button>
-			))}
+			<div>
+				{items.map((item) => (
+					<button
+						key={item._id}
+						onClick={() => {
+							handleTabChange('Mods');
+							handleCatChange(item.options);
+							handleSelectedMenuItemChange(item.name);
+						}}
+					>
+						<div>{item.acronym}</div>
+						<div>{item.price}</div>
+					</button>
+				))}
+			</div>
 		</div>
 	);
 }

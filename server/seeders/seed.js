@@ -14,7 +14,7 @@ db.once('open', async () => {
 		await Option.deleteMany({});
 
 		// bulk create
-		const User = await User.insertMany(userSeeds);
+		const users = await User.insertMany(userSeeds);
 		const items = await Item.insertMany(itemSeeds);
 		const orders = await Order.insertMany(orderSeeds);
 		const options = await Option.insertMany(optionSeeds);

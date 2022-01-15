@@ -2,9 +2,16 @@ import React from 'react';
 
 export default function mods({
 	items,
+	selectedMenuMod,
 	currentCat,
 	currentTab,
 	handleTabChange,
+	selectedMenuItem,
+	pendingOrderItem,
+	handleSelectedMenuMod,
+	handleSelectedMenuItemChange,
+	generateOrderItem,
+	generateTicket,
 }) {
 	// generate header sections for mods page
 	function generateSections(opt) {
@@ -34,7 +41,28 @@ export default function mods({
 					{currentCat.map((opt) => (
 						<div key={opt._id}>
 							{opt.type === sec && (
-								<button onClick={() => handleTabChange('Mods')}>
+								<button
+									onClick={() => {
+										let indexOfMod =
+											selectedMenuMod.findIndex(
+												(mod) => mod === opt.name,
+											);
+										if (indexOfMod === -1) {
+											handleSelectedMenuMod([
+												...selectedMenuMod,
+												opt.name,
+											]);
+										} else {
+											selectedMenuMod.splice(
+												indexOfMod,
+												1,
+											);
+											handleSelectedMenuMod([
+												...selectedMenuMod,
+											]);
+										}
+									}}
+								>
 									<div>{opt.name}</div>
 									{opt.adjust > 0 && <div>{opt.adjust}</div>}
 								</button>
@@ -44,7 +72,27 @@ export default function mods({
 				</div>
 			))}
 
-			<button onClick={() => handleTabChange('Menu')}>Return</button>
+			<button
+				onClick={() => {
+					handleTabChange('Menu');
+					handleSelectedMenuItemChange('');
+					handleSelectedMenuMod([]);
+				}}
+			>
+				Cancel
+			</button>
+
+			<button
+				onClick={ () => {
+					generateOrderItem(selectedMenuItem, selectedMenuMod);
+					handleTabChange('Menu');
+					handleSelectedMenuItemChange('');
+					handleSelectedMenuMod([]);
+					generateTicket(pendingOrderItem);
+				}}
+			>
+				Confirm
+			</button>
 		</div>
 	);
 }
