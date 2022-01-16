@@ -3,6 +3,7 @@ import React from 'react';
 export default function mods({
 	selectedMenuMod,
 	pendingModsCost,
+	pendingMenuCost,
 	currentCat,
 	handleTabChange,
 	selectedMenuItem,
@@ -11,6 +12,8 @@ export default function mods({
 	generateOrderItem,
 	handlePendingModsCost,
 	handlePendingMenuCost,
+	handlePendingSubTotal,
+	pendingSubTotal,
 }) {
 	// generate header sections for mods page
 	function generateSections(opt) {
@@ -102,9 +105,15 @@ export default function mods({
 					className='confirm-btn'
 					onClick={() => {
 						generateOrderItem(selectedMenuItem, selectedMenuMod);
+						handlePendingSubTotal(
+							pendingSubTotal + pendingModsCost + pendingMenuCost,
+						);
 						handleTabChange('Menu');
 						handleSelectedMenuItemChange('');
 						handleSelectedMenuMod([]);
+						handlePendingMenuCost(0);
+						handlePendingModsCost(0);
+
 						// generateTicket(pendingOrderItem);
 					}}
 				>

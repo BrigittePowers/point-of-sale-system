@@ -26,6 +26,7 @@ export default function Dashboard() {
 	const [pendingMenuCost, setPendingMenuCost] = useState(0);
 	const [pendingModsCost, setPendingModsCost] = useState(0);
 	const [pendingSubTotal, setPendingSubTotal] = useState(0);
+	const [pendingTotal, setPendingTotal] = useState(0);
 
 	useEffect(() => {
 		if (Object.keys(pendingOrderItem).length > 0) {
@@ -37,9 +38,19 @@ export default function Dashboard() {
 		}
 	}, [pendingOrderItem]);
 
-	// useEffect(() => {
+	useEffect(() => {
+		const generateTotal = (pendingSubTotal) => {
+			setPendingTotal(
+				(pendingSubTotal + pendingSubTotal * 0.065).toFixed(2),
+			);
+		};
 
-	// }, [pendingSubTotal])
+		generateTotal(pendingSubTotal);
+	}, [pendingSubTotal]);
+
+	// const generateTotal = (pendingSubTotal) => {
+	// 	setPendingTotal((p) => p + p * 0.065);
+	// };
 
 	const generateOrderItem = (menuItem, menuMod) => {
 		setPendingOrderItem({
@@ -59,6 +70,8 @@ export default function Dashboard() {
 	const handleSelectedMenuMod = (menuMod) => setSelectedMenuMod(menuMod);
 	const handlePendingMenuCost = (item) => setPendingMenuCost(item);
 	const handlePendingModsCost = (item) => setPendingModsCost(item);
+	const handlePendingSubTotal = (price) => setPendingSubTotal(price);
+	const handlePendingTotal = (price) => setPendingTotal(price);
 
 	const renderTab = () => {
 		if (currentTab === 'Menu') {
@@ -84,6 +97,8 @@ export default function Dashboard() {
 					selectedMenuMod={selectedMenuMod}
 					pendingOrderItem={pendingOrderItem}
 					pendingModsCost={pendingModsCost}
+					pendingMenuCost={pendingMenuCost}
+					pendingSubTotal={pendingSubTotal}
 					handleSelectedMenuItemChange={handleSelectedMenuItemChange}
 					handleTabChange={handleTabChange}
 					handleCatChange={handleCatChange}
@@ -91,6 +106,7 @@ export default function Dashboard() {
 					generateOrderItem={generateOrderItem}
 					handlePendingMenuCost={handlePendingMenuCost}
 					handlePendingModsCost={handlePendingModsCost}
+					handlePendingSubTotal={handlePendingSubTotal}
 				/>
 			);
 		}
@@ -99,8 +115,12 @@ export default function Dashboard() {
 	return (
 		<div className='dashboard'>
 			<Ticket
+				pendingMenuCost={pendingMenuCost}
+				pendingModsCost={pendingModsCost}
 				pendingSubTotal={pendingSubTotal}
 				pendingTicket={pendingTicket}
+				pendingTotal={pendingTotal}
+				handlePendingTotal={handlePendingTotal}
 			/>
 			{renderTab()}
 		</div>

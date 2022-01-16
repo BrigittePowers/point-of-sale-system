@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default function ticket({ pendingTicket, pendingSubTotal }) {
+export default function ticket({
+	pendingTicket,
+	pendingSubTotal,
+	pendingTotal,
+}) {
 	return (
 		<div className='ticket-window'>
 			<div className='order-num'>Order #000</div>
@@ -16,7 +20,9 @@ export default function ticket({ pendingTicket, pendingSubTotal }) {
 					</div>
 				))}
 				<div className='pricing'>
-					<div>Sub-Total: {pendingSubTotal}</div>
+					<div>Sub-Total: {pendingSubTotal.toFixed(2)}</div>
+					<div>Tax: {(pendingSubTotal * 0.0625).toFixed(2)}</div>
+					<div>Total: {pendingTotal}</div>
 				</div>
 			</div>
 			<div className='ticket-btn-box'>
