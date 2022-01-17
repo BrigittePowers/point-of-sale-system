@@ -3,8 +3,7 @@ const Order = require('./Order');
 
 const ticketSchema = new Schema({
 	date: {
-		type: Date,
-		default: Date.now,
+		type: String,
 	},
 	name: {
 		type: String,

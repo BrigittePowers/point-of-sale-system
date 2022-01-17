@@ -41,7 +41,7 @@ const typeDefs = gql`
 
 	type Ticket {
 		_id: ID
-		date: Int
+		date: String
 		name: String
 		orders: [Order]
 		paymentType: String
@@ -63,7 +63,7 @@ const typeDefs = gql`
 		login(email: String!, password: String!): Auth
 		addOrder(input: OrderInput): Order
 		addTicket(
-			date: Int
+			date: String
 			name: String
 			orders: [OrderInput]
 			paymentType: String

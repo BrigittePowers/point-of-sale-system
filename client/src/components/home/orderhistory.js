@@ -1,8 +1,9 @@
 import React from 'react';
 // import { QUERY_TICKETS } from '../../utils/queries';
 
+
 export default function OrderHistory({ tickets }) {
-	console.log(tickets);
+	
 
 	return (
 		<div>

@@ -61,8 +61,8 @@ const resolvers = {
 				orderedMods,
 			});
 		},
-		addTicket: async (parent, { date, orders, total }) => {
-			return await Ticket.create({ date, orders, total });
+		addTicket: async (parent, { date, name, paymentType, total }) => {
+			return await Ticket.create({ date, name, paymentType, total });
 		},
 	},
 };
