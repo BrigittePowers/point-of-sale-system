@@ -1,20 +1,23 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const { User, Order, Item, Option } = require('../models');
+const { User, Item, Option, Ticket, Order } = require('../models');
 
 const resolvers = {
 	Query: {
 		//get a user by username
 		me: async (parent, args, context) => {
 			if (context.user) {
-				const userData = await User.findOne({})
-					.select('-__v -password')
-					.populate('savedOrders');
+				const userData = await User.findOne({}).select(
+					'-__v -password',
+				);
 
 				return userData;
 			}
 
 			throw new AuthenticationError('Not logged in');
+		},
+		item: async ({ _id }) => {
+			return await Item.findById(_id);
 		},
 		items: async () => {
 			return await Item.find({});
@@ -22,11 +25,17 @@ const resolvers = {
 		options: async () => {
 			return await Option.find({});
 		},
+		order: async ({ _id }) => {
+			return await Order.findById(_id);
+		},
 		orders: async () => {
 			return await Order.find({});
 		},
-		item: async ({ _id }) => {
-			return await Item.findById(_id);
+		ticket: async (_id) => {
+			return await Ticket.findById(_id);
+		},
+		tickets: async () => {
+			return await Ticket.find({});
 		},
 	},
 	Mutation: {
@@ -46,20 +55,14 @@ const resolvers = {
 			const token = signToken(user);
 			return { token, user };
 		},
-		saveOrder: async (parent, args, context) => {
-			if (context.user) {
-				//   const savedBook = await Book.create({ ...args, username: context.user.username });
-
-				const updatedUser = await User.findByIdAndUpdate(
-					{ _id: context.user._id },
-					{ $addToSet: { savedOrders: args.input } },
-					{ new: true },
-				);
-
-				return updatedUser;
-			}
-
-			throw new AuthenticationError('You need to be logged in!');
+		addOrder: async (parent, { orderedItem, orderedMods }) => {
+			return await Order.create({
+				orderedItem,
+				orderedMods,
+			});
+		},
+		addTicket: async (parent, { date, orders, total }) => {
+			return await Ticket.create({ date, orders, total });
 		},
 	},
 };

@@ -26,9 +26,9 @@ export default function ticket({
 				</div>
 			</div>
 			<div className='ticket-btn-box'>
-				<button>Send</button>
-				<button>ToGo</button>
-				<button>Pay</button>
+				<button>Dine In</button>
+				<button>To Go</button>
+				<button className='confirm-btn'>Pay</button>
 			</div>
 		</div>
 	);

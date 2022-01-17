@@ -22,10 +22,6 @@
 		"url": "https://github.com/BrigittePowers/point-of-sale-system/issues"
 	},
 	"homepage": "https://github.com/BrigittePowers/point-of-sale-system#readme",
-	"dependencies": {
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2"
-	},
 	"devDependencies": {
 		"concurrently": "^7.0.0"
 	}

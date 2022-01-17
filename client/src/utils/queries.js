@@ -18,3 +18,20 @@ export const QUERY_ITEMS = gql`
 		}
 	}
 `;
+
+export const QUERY_TICKETS = gql`
+	{
+		tickets {
+			_id
+			date
+			name
+			orders {
+				_id
+				orderedItem
+				orderedMods
+			}
+			paymentType
+			total
+		}
+	}
+`;

@@ -1,25 +1,14 @@
 const { Schema, model } = require('mongoose');
 
 const orderSchema = new Schema({
-	purchaseDate: {
-		type: Date,
-		default: Date.now,
-	},
-	name: {
+	orderedItem: {
 		type: String,
 	},
-	items: [
+	orderedMods: [
 		{
-			type: Schema.Types.ObjectId,
-			ref: 'Item',
+			type: String,
 		},
 	],
-	paymentType: {
-		type: String,
-	},
-	total: {
-		type: Number,
-	},
 });
 
 const Order = model('Order', orderSchema);

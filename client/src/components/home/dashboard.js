@@ -7,8 +7,6 @@ import Ticket from '../tabs/ticket';
 import { useQuery } from '@apollo/client';
 import { QUERY_ITEMS } from '../../utils/queries';
 
-//TODO: import ID for each menu item for mapping
-
 export default function Dashboard() {
 	// change tabs from menu or mods
 	const [currentTab, setCurrentTab] = useState('Menu');

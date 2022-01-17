@@ -29,34 +29,46 @@ const typeDefs = gql`
 
 	type Order {
 		_id: ID
-		purchaseDate: String
-		name: String
-		items: [Item]
-		paymentType: String
-		total: Float
+		orderedItem: String
+		orderedMods: [String]
 	}
 
-	input savedOrder {
+	input OrderInput {
 		_id: ID
-		purchaseDate: String
+		orderedItem: String
+		orderedMods: [String]
+	}
+
+	type Ticket {
+		_id: ID
+		date: Int
 		name: String
-		items: [String]
+		orders: [Order]
 		paymentType: String
 		total: Float
 	}
 
 	type Query {
 		me: User
-		items: [Item]
 		item(_id: ID): Item
+		items: [Item]
 		options: [Option]
-		order(_id: ID): Order
+		order: Order
 		orders: [Order]
+		ticket(_id: ID): Ticket
+		tickets: [Ticket]
 	}
 
 	type Mutation {
 		login(email: String!, password: String!): Auth
-		saveOrder(input: savedOrder!): User
+		addOrder(input: OrderInput): Order
+		addTicket(
+			date: Int
+			name: String
+			orders: [OrderInput]
+			paymentType: String
+			total: Float
+		): Ticket
 	}
 
 	type Auth {

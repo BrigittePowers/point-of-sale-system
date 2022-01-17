@@ -10,20 +10,3 @@ export const LOGIN_USER = gql`
 		}
 	}
 `;
-
-export const SAVE_ORDER = gql`
-	mutation saveOrder($input: savedOrder!) {
-		saveBook(input: $input) {
-			_id
-			name
-			savedOrder {
-				# _id
-				purchaseDate
-				name
-				items
-				paymentType
-				total
-			}
-		}
-	}
-`;

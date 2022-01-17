@@ -1,7 +1,7 @@
 import React from 'react';
 // import { useMutation } from '@apollo/react-hooks';
 
-export default function adminbar(handleTabChange) {
+export default function adminbar({ handleTabChange }) {
 	return (
 		<div className='admin-bar'>
 			<div className='admin-basic'>
@@ -10,10 +10,18 @@ export default function adminbar(handleTabChange) {
 			</div>
 			<div>DemoCo PoS System</div>
 			<div className='admin-buttons'>
-				<button onClick={() => handleTabChange('Dashboard')}>
+				<button
+					onClick={() => {
+						handleTabChange('Dashboard');
+					}}
+				>
 					Dashboard
 				</button>
-				<button onClick={() => handleTabChange('Orders')}>
+				<button
+					onClick={() => {
+						handleTabChange('Orders');
+					}}
+				>
 					Recall
 				</button>
 				<button>Clock Out</button>
