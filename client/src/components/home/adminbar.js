@@ -9,7 +9,7 @@ export default function adminbar({ handleTabChange, refetch }) {
 	return (
 		<div className='admin-bar'>
 			<div className='admin-basic'>
-				<div>{date}</div>
+				<div>{date}--</div>
 				<div>{time}</div>
 				<div> -- Hi, Brigitte!</div>
 			</div>

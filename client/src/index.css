@@ -52,6 +52,10 @@ button {
 	align-items: center;
 }
 
+.admin-basic div {
+	padding-right: 1px;
+}
+
 /* Dashboard */
 .dashboard {
 	display: flex;
@@ -66,6 +70,12 @@ button {
 }
 
 /* Mods */
+/* Scrollable div */
+/* .mod-wrapper {
+	overflow-x: hidden;
+	overflow-y: auto;
+} */
+
 .mod-window {
 	display: flex;
 	flex-direction: column;
@@ -123,6 +133,14 @@ button {
 
 .order-wrapper {
 	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.order-window-wrapper {
+	height: 80%;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 
 .order-in-window {
@@ -140,30 +158,37 @@ button {
 	text-indent: 20%;
 }
 
+.ticket-bottom-name {
+	text-align: center;
+	font-weight: bold;
+	background-color: var(--dark);
+}
+
 /* Orders  */
-.recall-list { 
+.recall-list {
 	display: flex;
 	flex-direction: column;
-	
-	
+	height: 85vh;
 }
 
 .recall-item {
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	/* justify-content: center; */
+	padding-left: 25%;
 }
 
 .ticket-time {
-	width: 10%;
+	width: 20%;
+	text-align: left;
 }
 
 .ticket-name {
-	width: 20%;
+	width: 30%;
 }
 
 .pay {
-	width: 10%
+	width: 10%;
 }
 
 /* Footer */

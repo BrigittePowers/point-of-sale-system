@@ -90,17 +90,26 @@ export default function Ticket({
 					total: pendingTotal,
 				},
 			});
-			handlePendingTicket([]);
-			handlePendingSubTotal(0);
-			handlePendingTotal(0);
+
+			clearWindow();
 		} catch (err) {
 			console.error(error);
 		}
 	};
 
+	const clearWindow = () => {
+		let form = document.getElementById('name-form');
+		form.value = '';
+		handlePendingTicket([]);
+		handlePendingSubTotal(0);
+		handlePendingTotal(0);
+		handleNameChange('');
+	};
+
 	return (
 		<div className='ticket-window'>
 			<input
+				id='name-form'
 				type='text'
 				className='order-num'
 				placeholder='Order Name'
@@ -109,22 +118,24 @@ export default function Ticket({
 				}}
 			></input>
 			<div className='order-wrapper'>
-				{pendingTicket.map((order, idx) => (
-					<div className='order-in-window' key={idx}>
-						<div className='order-food-name'>{order.name}</div>
-						{order.mods.map((mod, idx) => (
-							<div className='order-mods' key={idx}>
-								{mod}
-							</div>
-						))}
-					</div>
-				))}
+				<div className='order-window-wrapper'>
+					{pendingTicket.map((order, idx) => (
+						<div className='order-in-window' key={idx}>
+							<div className='order-food-name'>{order.name}</div>
+							{order.mods.map((mod, idx) => (
+								<div className='order-mods' key={idx}>
+									{mod}
+								</div>
+							))}
+						</div>
+					))}
+				</div>
 				<div className='pricing'>
 					<div>Sub-Total: {pendingSubTotal.toFixed(2)}</div>
 					<div>Tax: {(pendingSubTotal * 0.0625).toFixed(2)}</div>
 					<div>Total: {pendingTotal}</div>
 				</div>
-				<div>{name}</div>
+				<div className='ticket-bottom-name'>{name}</div>
 			</div>
 			{renderTab()}
 		</div>
