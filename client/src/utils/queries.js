@@ -9,6 +9,24 @@ export const GET_ME = gql`
 	}
 `;
 
+export const QUERY_USERS = gql`
+	query users {
+		users {
+			_id
+			name
+		}
+	}
+`;
+
+export const QUERY_SINGLE_USER = gql`
+	query user($userId: ID!) {
+		profile(userId: $userId) {
+			_id
+			name
+		}
+	}
+`;
+
 export const QUERY_ITEMS = gql`
 	{
 		items {

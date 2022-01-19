@@ -5,17 +5,18 @@ const { User, Item, Option, Ticket, Order } = require('../models');
 const resolvers = {
 	Query: {
 		//get a user by username
-		me: async (parent, args, context) => {
-			if (context.user) {
-				const userData = await User.findOne({}).select(
-					'-__v -password',
-				);
-
-				return userData;
-			}
-
-			throw new AuthenticationError('Not logged in');
+		users: async () => {
+			return User.find();
 		},
+		user: async (parent, { userId }) => {
+			return User.findOne({ _id: userId });
+		},
+		// me: async (parent, args, context) => {
+		// 	if (context.user) {
+		// 		return User.findOne({ _id: context.user._id });
+		// 	}
+		// 	throw new AuthenticationError('You need to be logged in!');
+		// },
 		item: async ({ _id }) => {
 			return await Item.findById(_id);
 		},
@@ -39,21 +40,20 @@ const resolvers = {
 		},
 	},
 	Mutation: {
-		login: async (parent, { name, password }) => {
-			const user = await User.findOne({ name });
+		login: async (parent, { pin }) => {
+			const users = await User.find({});
 
-			if (!user) {
-				throw new AuthenticationError('Incorrect credentials');
-			}
+			users.forEach((user) => {
+				const correctPin = user.isCorrectPin(pin);
 
-			const correctPw = await user.isCorrectPassword(password);
-
-			if (!correctPw) {
-				throw new AuthenticationError('Incorrect credentials');
-			}
-
-			const token = signToken(user);
-			return { token, user };
+				if (correctPin) {
+					console.log('Correct');
+					const token = signToken(user);
+					return { token, user };
+				} else {
+					throw new AuthenticationError('Incorrect password!');
+				}
+			});
 		},
 		addOrder: async (parent, { orderedItem, orderedMods }) => {
 			return await Order.create({

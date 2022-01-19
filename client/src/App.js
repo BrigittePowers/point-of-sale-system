@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 //import pages
 import Home from './pages/Home';
@@ -28,8 +28,9 @@ function App() {
 			<Router>
 				<>
 					<Switch>
-						<Route exact path='/' component={Home} />
+						<Redirect exact from='/' to='/login' />
 						<Route exact path='/login' component={Login} />
+						<Route exact path='/home' component={Home} />
 						<Route
 							render={() => (
 								<h1 className='display-2'>Wrong page!</h1>

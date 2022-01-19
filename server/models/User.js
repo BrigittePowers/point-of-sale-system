@@ -6,8 +6,8 @@ const userSchema = new Schema(
 		name: {
 			type: String,
 		},
-		password: {
-			type: Number,
+		pin: {
+			type: String,
 			required: true,
 			length: 4,
 		},
@@ -21,17 +21,17 @@ const userSchema = new Schema(
 
 // hash user password
 userSchema.pre('save', async function (next) {
-	if (this.isNew || this.isModified('password')) {
+	if (this.isNew || this.isModified('pin')) {
 		const saltRounds = 10;
-		this.password = await bcrypt.hash(this.password, saltRounds);
+		this.pin = await bcrypt.hash(this.pin, saltRounds);
 	}
 
 	next();
 });
 
 // custom method to compare and validate password for logging in
-userSchema.methods.isCorrectPassword = async function (password) {
-	return bcrypt.compare(password, this.password);
+userSchema.methods.isCorrectPin = async function (pin) {
+	return bcrypt.compare(pin, this.pin);
 };
 
 const User = model('User', userSchema);

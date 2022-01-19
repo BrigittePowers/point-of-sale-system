@@ -1,97 +1,63 @@
 import React, { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
-// import { loginUser } from '../utils/API';
-import Auth from '../utils/auth';
-import { useMutation } from '@apollo/react-hooks';
-import { LOGIN_USER } from '../utils/mutations';
+import ReactCodeInput from 'react-code-input';
+// import { useMutation } from '@apollo/react-hooks';
+// import { LOGIN_USER } from '../utils/mutations';
 
-const LoginForm = () => {
-	const [userFormData, setUserFormData] = useState({
-		name: '',
-		password: '',
-	});
-	const [validated] = useState(false);
-	const [showAlert, setShowAlert] = useState(false);
+const PinCode = () => {
+	// set if our pin code is valid
+	const [isPinCodeValid, setIsPinCodeValid] = useState(false);
+	// the last pin code entered after button press
+	const [pinCode, setPinCode] = useState('');
+	// was the button pressed?
+	const [btnIsPressed, setBtnIsPressed] = useState(false);
+	// grab out data
+	// const [loginUser] = useMutation(LOGIN_USER);
 
-	//code brought in after
-	const [loginUser, { error }] = useMutation(LOGIN_USER);
+	const [correctPin] = useState('1001');
 
-	const handleInputChange = (event) => {
-		const { name, value } = event.target;
-		setUserFormData({ ...userFormData, [name]: value });
+	const checkPinCode = async () => {
+		// try {
+		// 	const { data } = await loginUser({
+		// 		variables: { pin: pinCode },
+		// 	});
+
+		// 	Auth.login(data.login.token);
+		// } catch (e) {
+		// 	console.error(e);
+		// }
+
+		const isPinCodeValid = pinCode === correctPin;
+
+		setBtnIsPressed(true);
+		setIsPinCodeValid(isPinCodeValid);
+		if (!isPinCodeValid) {
+			setPinCode('');
+		} else window.location.href = '/home';
 	};
 
-	const handleFormSubmit = async (event) => {
-		event.preventDefault();
-
-		try {
-			const { data } = await loginUser({
-				variables: { ...userFormData },
-			});
-
-			Auth.login(data.login.token);
-		} catch (e) {
-			console.error(e);
-		}
-
-		setUserFormData({
-			username: '',
-			email: '',
-			password: '',
-		});
+	const handlePinChange = (pinCode) => {
+		setPinCode(pinCode);
+		setBtnIsPressed(false);
 	};
 
 	return (
-		<>
-			<Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-				<Alert
-					dismissible
-					onClose={() => setShowAlert(false)}
-					show={showAlert}
-					variant='danger'
-				>
-					Something went wrong with your login credentials!
-				</Alert>
-				<Form.Group>
-					<Form.Label htmlFor='email'>Email</Form.Label>
-					<Form.Control
-						type='text'
-						placeholder='Your email'
-						name='email'
-						onChange={handleInputChange}
-						value={userFormData.email}
-						required
-					/>
-					<Form.Control.Feedback type='invalid'>
-						Email is required!
-					</Form.Control.Feedback>
-				</Form.Group>
-
-				<Form.Group>
-					<Form.Label htmlFor='password'>Password</Form.Label>
-					<Form.Control
-						type='password'
-						placeholder='Your password'
-						name='password'
-						onChange={handleInputChange}
-						value={userFormData.password}
-						required
-					/>
-					<Form.Control.Feedback type='invalid'>
-						Password is required!
-					</Form.Control.Feedback>
-				</Form.Group>
-				<Button
-					disabled={!(userFormData.email && userFormData.password)}
-					type='submit'
-					variant='success'
-				>
-					Submit
-				</Button>
-			</Form>
-			{error && <div>Login failed</div>}
-		</>
+		<div className='pin-wrapper'>
+			<div>Enter PIN to continue</div>
+			<ReactCodeInput
+				id='pinCode'
+				type='password'
+				isValid={isPinCodeValid}
+				fields={4}
+				onChange={handlePinChange}
+				value={pinCode}
+			/>
+			<div>{isPinCodeValid && btnIsPressed && 'Valid'}</div>
+			<div>
+				{!isPinCodeValid && btnIsPressed && 'Entry is not a valid pin'}
+			</div>
+			<button onClick={checkPinCode}>Check pin</button>
+		</div>
 	);
 };
 
-export default LoginForm;
+export default PinCode;

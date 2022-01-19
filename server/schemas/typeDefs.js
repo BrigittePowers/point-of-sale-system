@@ -23,8 +23,7 @@ const typeDefs = gql`
 	type User {
 		_id: ID
 		name: String
-		password: Int
-		savedOrders: [Order]
+		pin: String
 	}
 
 	type Order {
@@ -43,7 +42,8 @@ const typeDefs = gql`
 	}
 
 	type Query {
-		me: User
+		users: [User]
+		user(userId: ID!): User
 		item(_id: ID): Item
 		items: [Item]
 		options: [Option]
@@ -54,7 +54,7 @@ const typeDefs = gql`
 	}
 
 	type Mutation {
-		login(email: String!, password: String!): Auth
+		login(pin: String!): Auth
 		addOrder(orderedItem: String, orderedMods: String): Order
 		addTicket(
 			date: String

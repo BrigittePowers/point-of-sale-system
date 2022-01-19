@@ -30,7 +30,9 @@ export default function adminbar({ handleTabChange, refetch }) {
 				>
 					Recall
 				</button>
-				<button>Clock Out</button>
+				<button onClick={() => {
+					window.location.href = '/login';
+				}}>Clock Out</button>
 			</div>
 		</div>
 	);
