@@ -33,19 +33,13 @@ const typeDefs = gql`
 		orderedMods: [String]
 	}
 
-	input OrderInput {
-		_id: ID
-		orderedItem: String
-		orderedMods: [String]
-	}
-
 	type Ticket {
 		_id: ID
 		date: String
 		name: String
 		orders: [Order]
 		paymentType: String
-		total: Float
+		total: String
 	}
 
 	type Query {
@@ -61,13 +55,12 @@ const typeDefs = gql`
 
 	type Mutation {
 		login(email: String!, password: String!): Auth
-		addOrder(input: OrderInput): Order
+		addOrder(orderedItem: String, orderedMods: String): Order
 		addTicket(
 			date: String
 			name: String
-			orders: [OrderInput]
 			paymentType: String
-			total: Float
+			total: String
 		): Ticket
 	}
 

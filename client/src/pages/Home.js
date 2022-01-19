@@ -3,15 +3,14 @@ import Adminbar from '../components/home/adminbar';
 import Dashboard from '../components/home/dashboard';
 import Orders from '../components/home/orderhistory';
 import Footer from '../components/home/footer';
-
 import { useQuery } from '@apollo/client';
 import { QUERY_TICKETS } from '../utils/queries';
 
 export default function Home() {
 	const [currentTab, setCurrentTab] = useState('Dashboard');
-	const { loading, data } = useQuery(QUERY_TICKETS);
+
+	const { data, refetch } = useQuery(QUERY_TICKETS);
 	const tickets = data?.tickets || [];
-	// const tickets = () => data?.tickets || [];
 
 	const renderTab = () => {
 		if (currentTab === 'Dashboard') {
@@ -24,11 +23,7 @@ export default function Home() {
 		if (currentTab === 'Orders') {
 			return (
 				<div>
-					{loading ? (
-						<div>Loading...</div>
-					) : (
-						<Orders tickets={tickets} />
-					)}
+					<Orders tickets={tickets} />
 				</div>
 			);
 		}
@@ -40,7 +35,7 @@ export default function Home() {
 
 	return (
 		<div>
-			<Adminbar tickets={tickets} handleTabChange={handleTabChange} />
+			<Adminbar handleTabChange={handleTabChange} refetch={refetch} />
 			{renderTab()}
 			<Footer />
 		</div>

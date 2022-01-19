@@ -11,12 +11,18 @@ export const LOGIN_USER = gql`
 	}
 `;
 
+export const ADD_ORDER = gql`
+	mutation addOrder($orderedItem: String!, $orderedMods: String!) {
+		addOrder(orderedItem: $orderedItem, orderedMods: [$orderedMods])
+	}
+`;
+
 export const ADD_TICKET = gql`
 	mutation addTicket(
 		$date: String!
 		$name: String!
 		$paymentType: String!
-		$total: Float!
+		$total: String!
 	) {
 		addTicket(
 			date: $date

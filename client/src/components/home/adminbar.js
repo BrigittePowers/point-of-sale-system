@@ -1,7 +1,6 @@
 import React from 'react';
-// import { useMutation } from '@apollo/react-hooks';
 
-export default function adminbar({ handleTabChange }) {
+export default function adminbar({ handleTabChange, refetch }) {
 	//manage time
 	let currentDate = new Date();
 	const date = new Date().toDateString();
@@ -25,6 +24,7 @@ export default function adminbar({ handleTabChange }) {
 				</button>
 				<button
 					onClick={() => {
+						refetch();
 						handleTabChange('Orders');
 					}}
 				>

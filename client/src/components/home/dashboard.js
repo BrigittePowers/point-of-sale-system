@@ -69,6 +69,7 @@ export default function Dashboard() {
 	const handlePendingMenuCost = (item) => setPendingMenuCost(item);
 	const handlePendingModsCost = (item) => setPendingModsCost(item);
 	const handlePendingSubTotal = (price) => setPendingSubTotal(price);
+	const handlePendingTicket = (ticket) => setPendingTicket(ticket);
 	const handlePendingTotal = (price) => setPendingTotal(price);
 
 	const renderTab = () => {
@@ -118,6 +119,8 @@ export default function Dashboard() {
 				pendingSubTotal={pendingSubTotal}
 				pendingTicket={pendingTicket}
 				pendingTotal={pendingTotal}
+				handlePendingTicket={handlePendingTicket}
+				handlePendingSubTotal={handlePendingSubTotal}
 				handlePendingTotal={handlePendingTotal}
 			/>
 			{renderTab()}

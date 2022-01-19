@@ -6,24 +6,94 @@ export default function Ticket({
 	pendingTicket,
 	pendingSubTotal,
 	pendingTotal,
+	handlePendingTicket,
+	handlePendingSubTotal,
+	handlePendingTotal,
 }) {
 	const [addTicket, { error }] = useMutation(ADD_TICKET);
-	const [ticketID, setTicketID] = useState();
-	const handleTicketID = (id) => setTicketID(id);
-	let currentDate = new Date();
-	let time = currentDate.getHours() + ':' + currentDate.getMinutes();
+	const [name, setName] = useState('');
+	const [currentTab, setCurrentTab] = useState('Dine');
+	const handleTabChange = (tab) => setCurrentTab(tab);
+	const handleNameChange = (name) => setName(name);
 
-	const submitTicket = async () => {
+	const renderTab = () => {
+		if (currentTab === 'Dine') {
+			return (
+				<div className='ticket-btn-box'>
+					<button
+						onClick={() => {
+							handleNameChange('[DINE IN] - ' + name);
+						}}
+					>
+						Dine In
+					</button>
+					<button
+						onClick={() => {
+							handleNameChange('[TO GO] - ' + name);
+						}}
+					>
+						To Go
+					</button>
+					<button
+						className='confirm-btn'
+						onClick={() => {
+							handleTabChange('Pay');
+						}}
+					>
+						Pay
+					</button>
+				</div>
+			);
+		}
+		if (currentTab === 'Pay') {
+			return (
+				<div className='ticket-btn-box'>
+					<button
+						className='cancel-btn'
+						onClick={() => {
+							handleTabChange('Dine');
+						}}
+					>
+						Cancel
+					</button>
+					<button
+						onClick={() => {
+							handleTabChange('Dine');
+							submitTicket('Card');
+						}}
+					>
+						Card
+					</button>
+					<button
+						onClick={() => {
+							handleTabChange('Dine');
+							submitTicket('Cash');
+						}}
+					>
+						Cash
+					</button>
+				</div>
+			);
+		}
+	};
+
+	const submitTicket = async (pay) => {
+		console.log('Submit Ticket');
+		let currentDate = new Date();
+		let time = currentDate.getHours() + ':' + currentDate.getMinutes();
+
 		try {
-			const { data } = await addTicket({
+			await addTicket({
 				variables: {
 					date: time,
-					name: 'Name',
-					paymentType: 'Visa',
-					total: 10,
+					name,
+					paymentType: pay,
+					total: pendingTotal,
 				},
 			});
-			handleTicketID(data.addTicket._id);
+			handlePendingTicket([]);
+			handlePendingSubTotal(0);
+			handlePendingTotal(0);
 		} catch (err) {
 			console.error(error);
 		}
@@ -31,7 +101,14 @@ export default function Ticket({
 
 	return (
 		<div className='ticket-window'>
-			<div className='order-num'>Order #000</div>
+			<input
+				type='text'
+				className='order-num'
+				placeholder='Order Name'
+				onChange={(event) => {
+					handleNameChange(event.target.value);
+				}}
+			></input>
 			<div className='order-wrapper'>
 				{pendingTicket.map((order, idx) => (
 					<div className='order-in-window' key={idx}>
@@ -48,19 +125,9 @@ export default function Ticket({
 					<div>Tax: {(pendingSubTotal * 0.0625).toFixed(2)}</div>
 					<div>Total: {pendingTotal}</div>
 				</div>
+				<div>{name}</div>
 			</div>
-			<div className='ticket-btn-box'>
-				<button>Dine In</button>
-				<button>To Go</button>
-				<button
-					className='confirm-btn'
-					onClick={() => {
-						submitTicket();
-					}}
-				>
-					Pay
-				</button>
-			</div>
+			{renderTab()}
 		</div>
 	);
 }

@@ -13,7 +13,7 @@ const ticketSchema = new Schema({
 		type: String,
 	},
 	total: {
-		type: Number,
+		type: String,
 	},
 });
 
