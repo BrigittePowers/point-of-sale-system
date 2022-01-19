@@ -2,9 +2,9 @@ const db = require('../config/connection');
 const { Item, User, Order, Option, Ticket } = require('../models');
 const userSeeds = require('./userSeeds.json');
 const itemSeeds = require('./itemSeeds.json');
-const orderSeeds = require('./orderSeeds.json');
+// const orderSeeds = require('./orderSeeds.json');
 const optionSeeds = require('./optionSeeds.json');
-const ticketSeeds = require('./ticketSeeds.json');
+// const ticketSeeds = require('./ticketSeeds.json');
 
 db.once('open', async () => {
 	try {
@@ -18,9 +18,9 @@ db.once('open', async () => {
 		// bulk create
 		const users = await User.insertMany(userSeeds);
 		const items = await Item.insertMany(itemSeeds);
-		const orders = await Order.insertMany(orderSeeds);
+		// const orders = await Order.insertMany(orderSeeds);
 		const options = await Option.insertMany(optionSeeds);
-		const tickets = await Ticket.insertMany(ticketSeeds);
+		// const tickets = await Ticket.insertMany(ticketSeeds);
 
 		// assign option categories to item types
 		for (newOption of options) {
@@ -36,14 +36,14 @@ db.once('open', async () => {
 		}
 
 		//assign orders to ticket seed
-		for (newOrder of orders) {
-			const tempTicket = tickets[0];
-			tempTicket.orders.push(newOrder);
+		// for (newOrder of orders) {
+		// 	const tempTicket = tickets[0];
+		// 	tempTicket.orders.push(newOrder);
 
-			console.log(tempTicket);
+		// 	console.log(tempTicket);
 
-			await tempTicket.save();
-		}
+		// 	await tempTicket.save();
+		// }
 
 		console.log('Seeding done!');
 		process.exit(0);

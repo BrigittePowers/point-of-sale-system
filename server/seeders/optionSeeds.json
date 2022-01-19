@@ -1,58 +1,506 @@
 [
 	{
+		"name": "Angus (1/2lb)",
+		"type": "Sub",
+		"adjust": 3.0,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Mush & Swiss",
+		"type": "Sub",
+		"adjust": 2.0,
+		"category": ["Burger"],
+		"added": false
+	},
+	{
+		"name": "Refried Bean",
+		"type": "Sub",
+		"adjust": 2.0,
+		"category": ["Burger"],
+		"added": false
+	},
+	{
+		"name": "Double /w Cheese",
+		"type": "Sub",
+		"adjust": 4.0,
+		"category": ["Burger"],
+		"added": false
+	},
+	{
+		"name": "Extra Patty",
+		"type": "Sub",
+		"adjust": 2.79,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Extra Angus",
+		"type": "Sub",
+		"adjust": 3.79,
+		"category": ["Burger", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "White Bun",
+		"type": "Bun",
+		"adjust": 0,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Wheat Bun",
+		"type": "Bun",
+		"adjust": 0.5,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Gluten-Free Bun",
+		"type": "Bun",
+		"adjust": 1.69,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Sourdough Bun",
+		"type": "Bun",
+		"adjust": 0.99,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Jalapeño Bun",
+		"type": "Bun",
+		"adjust": 0.99,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "No Bun",
+		"type": "Bun",
+		"adjust": 0,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Lettuce Wrap",
+		"type": "Bun",
+		"adjust": 0,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
 		"name": "American",
 		"type": "Cheese",
-		"adjust": 0.5,
-		"category": ["Burger", "Sandwich"],
+		"adjust": 0.59,
+		"category": ["Burger", "Sandwich", "BBQ", "Nacho"],
 		"added": false
 	},
 	{
 		"name": "Provolone",
 		"type": "Cheese",
+		"adjust": 0.59,
+		"category": ["Burger", "Sandwich", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Swiss",
+		"type": "Cheese",
+		"adjust": 0.59,
+		"category": ["Burger", "Sandwich", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Cheddar",
+		"type": "Cheese",
+		"adjust": 0.59,
+		"category": ["Burger", "Sandwich", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Pepperjack",
+		"type": "Cheese",
+		"adjust": 0.59,
+		"category": ["Burger", "Sandwich", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Cream Cheese",
+		"type": "Cheese",
 		"adjust": 0.5,
-		"category": ["Burger", "Sandwich"],
+		"category": ["Pop"],
 		"added": false
 	},
 	{
 		"name": "Mayo",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": ["Burger"],
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
 		"added": false
 	},
 	{
 		"name": "Mustard",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": ["Burger"],
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Rasp. Chipotle",
+		"type": "Topping",
+		"adjust": 0.0,
+		"category": ["Pop"],
+		"added": false
+	},
+	{
+		"name": "BBQ Sauce",
+		"type": "Topping",
+		"adjust": 0.0,
+		"category": ["BBQ"],
+		"added": false
+	},
+	{
+		"name": "Ranch",
+		"type": "Topping",
+		"adjust": 0.0,
+		"category": ["BBQ"],
+		"added": false
+	},
+	{
+		"name": "Spicy Ranch",
+		"type": "Topping",
+		"adjust": 0.0,
+		"category": ["Nacho"],
+		"added": false
+	},
+	{
+		"name": "Queso",
+		"type": "Topping",
+		"adjust": 0.0,
+		"category": ["Nacho"],
 		"added": false
 	},
 	{
 		"name": "Lettuce",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": ["Burger"],
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
 		"added": false
 	},
 	{
 		"name": "Tomato",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": ["Burger"],
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
 		"added": false
 	},
 	{
 		"name": "Pickle",
 		"type": "Topping",
 		"adjust": 0.0,
-		"category": ["Burger"],
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
 		"added": false
 	},
 	{
 		"name": "Onion",
 		"type": "Topping",
 		"adjust": 0.0,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "All the Way",
+		"type": "Shorthand",
+		"adjust": 0.0,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Plain",
+		"type": "Shorthand",
+		"adjust": 0.0,
 		"category": ["Burger"],
+		"added": false
+	},
+	{
+		"name": "Dry",
+		"type": "Shorthand",
+		"adjust": 0.0,
+		"category": ["Burger"],
+		"added": false
+	},
+	{
+		"name": "Plain and Dry",
+		"type": "Shorthand",
+		"adjust": 0.0,
+		"category": ["Burger"],
+		"added": false
+	},
+	{
+		"name": "Sissy",
+		"type": "Shorthand",
+		"adjust": 0.0,
+		"category": ["Burger"],
+		"added": false
+	},
+	{
+		"name": "Bacon",
+		"type": "Extra",
+		"adjust": 1.79,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Mushrooms",
+		"type": "Extra",
+		"adjust": 1.39,
+		"category": ["Burger", "Pop"],
+		"added": false
+	},
+	{
+		"name": "Jalapeños",
+		"type": "Extra",
+		"adjust": 0.3,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Grilled Onions",
+		"type": "Extra",
+		"adjust": 0.99,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Avocado",
+		"type": "Extra",
+		"adjust": 1.3,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Guacamole",
+		"type": "Extra",
+		"adjust": 1.3,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "Chili",
+		"type": "Extra",
+		"adjust": 1.69,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "String Rings",
+		"type": "Extra",
+		"adjust": 0.99,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "w/ Fries",
+		"type": "Combo",
+		"adjust": 2.99,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "w/ Tots",
+		"type": "Combo",
+		"adjust": 2.99,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "w/ Onion Rings",
+		"type": "Combo",
+		"adjust": 2.99,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "w/ S. Potato Fries",
+		"type": "Combo",
+		"adjust": 2.99,
+		"category": ["Burger", "Pop", "BBQ", "Nacho"],
+		"added": false
+	},
+	{
+		"name": "1/2 Fries",
+		"type": "Half",
+		"adjust": 0,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "Full Fries",
+		"type": "Full",
+		"adjust": 1.49,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "1/2 Tots",
+		"type": "Half",
+		"adjust": 0,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "Full Tots",
+		"type": "Full",
+		"adjust": 1.49,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "1/2 Rings",
+		"type": "Half",
+		"adjust": 0,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "Full Rings",
+		"type": "Full",
+		"adjust": 1.49,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "1/2 S. Fries",
+		"type": "Half",
+		"adjust": 0.5,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "Full S. Fries",
+		"type": "Full",
+		"adjust": 1.99,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "Cheese",
+		"type": "Extra",
+		"adjust": 0.5,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "Chili",
+		"type": "Extra",
+		"adjust": 1.59,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "Chili & Cheese",
+		"type": "Extra",
+		"adjust": 2.3,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "Fried Okra",
+		"type": "Others",
+		"adjust": 0,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "Green Beans",
+		"type": "Others",
+		"adjust": 0,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "Mashed Potatos",
+		"type": "Others",
+		"adjust": 0,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "Mac & Cheese",
+		"type": "Others",
+		"adjust": 0,
+		"category": ["Sides"],
+		"added": false
+	},
+	{
+		"name": "1/2 Mushrooms",
+		"type": "Shroom",
+		"adjust": 4.99,
+		"category": ["App"],
+		"added": false
+	},
+	{
+		"name": "Fried Mushrooms",
+		"type": "Shroom",
+		"adjust": 7.99,
+		"category": ["App"],
+		"added": false
+	},
+	{
+		"name": "1/2 Pickles",
+		"type": "Pickles",
+		"adjust": 2.99,
+		"category": ["App"],
+		"added": false
+	},
+	{
+		"name": "Fried Pickles",
+		"type": "Pickles",
+		"adjust": 4.99,
+		"category": ["App"],
+		"added": false
+	},
+	{
+		"name": "Bean Nachos",
+		"type": "Nacho",
+		"adjust": 6.49,
+		"category": ["App"],
+		"added": false
+	},
+	{
+		"name": "Longhorn Nachos",
+		"type": "Nacho",
+		"adjust": 8.49,
+		"category": ["App"],
+		"added": false
+	},
+	{
+		"name": "Chips & Salsa",
+		"type": "Chips",
+		"adjust": 3.99,
+		"category": ["App"],
+		"added": false
+	},
+	{
+		"name": "Chips & Queso",
+		"type": "Chips",
+		"adjust": 4.99,
+		"category": ["App"],
+		"added": false
+	},
+	{
+		"name": "Out Early",
+		"type": "Time",
+		"adjust": 0,
+		"category": ["App"],
+		"added": false
+	},
+	{
+		"name": "With Meal",
+		"type": "Time",
+		"adjust": 0,
+		"category": ["App"],
 		"added": false
 	}
 ]

@@ -18,21 +18,11 @@ module.exports = {
 
 		res.json(foundUser);
 	},
-	// create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
-	// async createUser({ body }, res) {
-	// 	const user = await User.create(body);
-
-	// 	if (!user) {
-	// 		return res.status(400).json({ message: 'Something is wrong!' });
-	// 	}
-	// 	const token = signToken(user);
-	// 	res.json({ token, user });
-	// },
 	// login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
 	// {body} is destructured req.body
 	async login({ body }, res) {
 		const user = await User.findOne({
-			$or: [{ username: body.username }, { email: body.email }],
+			name: body.name,
 		});
 		if (!user) {
 			return res.status(400).json({ message: "Can't find this user" });
@@ -46,34 +36,4 @@ module.exports = {
 		const token = signToken(user);
 		res.json({ token, user });
 	},
-	// save a book to a user's `savedBooks` field by adding it to the set (to prevent duplicates)
-	// user comes from `req.user` created in the auth middleware function
-	async saveOrder({ user, body }, res) {
-		console.log(user);
-		try {
-			const updatedUser = await User.findOneAndUpdate(
-				{ _id: user._id },
-				{ $addToSet: { orders: body } },
-				{ new: true, runValidators: true },
-			);
-			return res.json(updatedUser);
-		} catch (err) {
-			console.log(err);
-			return res.status(400).json(err);
-		}
-	},
-	// remove a book from `savedBooks`
-	// async deleteBook({ user, params }, res) {
-	// 	const updatedUser = await User.findOneAndUpdate(
-	// 		{ _id: user._id },
-	// 		{ $pull: { savedBooks: { bookId: params.bookId } } },
-	// 		{ new: true },
-	// 	);
-	// 	if (!updatedUser) {
-	// 		return res
-	// 			.status(404)
-	// 			.json({ message: "Couldn't find user with this id!" });
-	// 	}
-	// 	return res.json(updatedUser);
-	// },
 };

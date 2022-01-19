@@ -2,11 +2,11 @@ import React from 'react';
 
 export default function OrderHistory({ tickets }) {
 	return (
-		<div>
+		<div className='recall-list'>
 			{tickets.map((ticket) => (
-				<div key={ticket._id}>
-					<div>{ticket.date}</div>
-					<div>{ticket.name}</div>
+				<div className='recall-item' key={ticket._id}>
+					<div className='ticket-time'>{ticket.date}</div>
+					<div className='ticket-name'>{ticket.name}</div>
 					{ticket.orders.map((order) => (
 						<div key={order._id}>
 							<div>{order.orderedItem}</div>
@@ -15,8 +15,8 @@ export default function OrderHistory({ tickets }) {
 							))}
 						</div>
 					))}
-					<div>{ticket.paymentType}</div>
-					<div>{ticket.total}</div>
+					<div className='pay'>{ticket.paymentType}</div>
+					<div>${ticket.total}</div>
 				</div>
 			))}
 		</div>

@@ -7,6 +7,7 @@ export default function Menu({
 	handleCatChange,
 	handleSelectedMenuItemChange,
 	handlePendingMenuCost,
+	handleSelectedItemDef
 }) {
 	return (
 		<div className='menu-box'>
@@ -16,11 +17,12 @@ export default function Menu({
 					onClick={() => {
 						handleTabChange('Mods');
 						handleCatChange(item.options);
+						handleSelectedItemDef(item.defaults);
 						handleSelectedMenuItemChange(item.name);
 						handlePendingMenuCost(item.price);
 					}}
 				>
-					<div>{item.acronym}</div>
+					<div>{item.name}</div>
 					<div>{item.price}</div>
 				</button>
 			))}

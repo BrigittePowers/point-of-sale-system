@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-export default function mods({
+export default function Mods({
 	selectedMenuMod,
 	pendingModsCost,
 	pendingMenuCost,
@@ -14,7 +14,27 @@ export default function mods({
 	handlePendingMenuCost,
 	handlePendingSubTotal,
 	pendingSubTotal,
+	selectedItemDef,
 }) {
+	//toggle button active or inactive for css
+	const handleToggle = (id) => {
+		let btn = document.getElementById(id);
+		btn.classList.toggle('button-on');
+	};
+
+	// check active buttons against default item list
+	useEffect(() => {
+		for (let x = 0; x < currentCat.length; x++) {
+			let btn = document.getElementById(x);
+			let arr = selectedItemDef;
+			let index = arr.findIndex((mod) => mod === btn.name);
+			if (index > -1) {
+				btn.classList.toggle('button-on');
+			}
+		}
+		handleSelectedMenuMod([...selectedMenuMod, ...selectedItemDef]);
+	}, []);
+
 	// generate header sections for mods page
 	function generateSections(opt) {
 		let types = [];
@@ -40,18 +60,21 @@ export default function mods({
 			<div>Modify {selectedMenuItem}: </div>
 			{sections.map((sec) => (
 				<div className='mod-box' key={sec}>
-					<h1 className='section-name'>{sec}</h1>
+					{/* <h1 className='section-name'>{sec}</h1> */}
 					<div className='section-list'>
-						{currentCat.map((opt) => (
+						{currentCat.map((opt, idx) => (
 							<div key={opt._id}>
 								{opt.type === sec && (
 									<button
-										className='mod-button'
+										id={idx}
+										name={opt.name}
+										value={opt.adjust}
 										onClick={() => {
 											let indexOfMod =
 												selectedMenuMod.findIndex(
 													(mod) => mod === opt.name,
 												);
+											handleToggle(idx);
 											if (indexOfMod === -1) {
 												handleSelectedMenuMod([
 													...selectedMenuMod,
@@ -78,7 +101,7 @@ export default function mods({
 									>
 										<div>{opt.name}</div>
 										{opt.adjust > 0 && (
-											<div>{opt.adjust}</div>
+											<div>${opt.adjust}</div>
 										)}
 									</button>
 								)}
@@ -113,8 +136,6 @@ export default function mods({
 						handleSelectedMenuMod([]);
 						handlePendingMenuCost(0);
 						handlePendingModsCost(0);
-
-						// generateTicket(pendingOrderItem);
 					}}
 				>
 					Confirm

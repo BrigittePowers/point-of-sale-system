@@ -140,6 +140,32 @@ button {
 	text-indent: 20%;
 }
 
+/* Orders  */
+.recall-list { 
+	display: flex;
+	flex-direction: column;
+	
+	
+}
+
+.recall-item {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.ticket-time {
+	width: 10%;
+}
+
+.ticket-name {
+	width: 20%;
+}
+
+.pay {
+	width: 10%
+}
+
 /* Footer */
 .footer {
 	background-color: var(--dark);

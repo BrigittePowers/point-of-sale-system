@@ -2,9 +2,116 @@
 	{
 		"name": "Hamburger",
 		"acronym": "HB",
-		"price": 8.79,
+		"price": 5.99,
 		"type": "Burger",
-		"defaults": ["Mayo", "Mustard"]
+		"defaults": [
+			"Mayo",
+			"Mustard",
+			"Lettuce",
+			"Tomato",
+			"Pickle",
+			"Onion",
+			"White Bun"
+		]
+	},
+	{
+		"name": "Turkey Burger",
+		"acronym": "TB",
+		"price": 7.29,
+		"type": "Burger",
+		"defaults": [
+			"Mayo",
+			"Mustard",
+			"Lettuce",
+			"Tomato",
+			"Pickle",
+			"Onion",
+			"Wheat Bun"
+		]
+	},
+	{
+		"name": "Garden Burger",
+		"acronym": "GB",
+		"price": 7.29,
+		"type": "Burger",
+		"defaults": [
+			"Mayo",
+			"Mustard",
+			"Lettuce",
+			"Tomato",
+			"Pickle",
+			"Onion",
+			"White Bun"
+		]
+	},
+	{
+		"name": "Bean Burger",
+		"acronym": "BBB",
+		"price": 7.29,
+		"type": "Burger",
+		"defaults": [
+			"Mayo",
+			"Mustard",
+			"Lettuce",
+			"Tomato",
+			"Pickle",
+			"Onion",
+			"White Bun"
+		]
+	},
+	{
+		"name": "Impossible Burger",
+		"acronym": "IMP",
+		"price": 8.99,
+		"type": "Burger",
+		"defaults": [
+			"Mustard",
+			"Lettuce",
+			"Tomato",
+			"Pickle",
+			"Onion",
+			"Sourdough Bun"
+		]
+	},
+	{
+		"name": "Big Popper",
+		"acronym": "POP",
+		"price": 8.99,
+		"type": "Pop",
+		"defaults": [
+			"Jalapeño Bun",
+			"Lettuce",
+			"Mayo",
+			"Cream Cheese",
+			"Rasp. Chipotle",
+			"Jalapeños"
+		]
+	},
+	{
+		"name": "Bold BBQ",
+		"acronym": "BBQ",
+		"price": 8.99,
+		"type": "BBQ",
+		"defaults": [
+			"Sourdough Bun",
+			"String Rings",
+			"BBQ Sauce",
+			"Bacon",
+			"Ranch"
+		]
+	},
+	{
+		"name": "Macho Nacho",
+		"acronym": "MNB",
+		"price": 8.99,
+		"type": "Nacho",
+		"defaults": [
+			"Sourdough Bun",
+			"Queso",
+			"Lettuce",
+			"Tomato",
+			"Spicy Ranch"
+		]
 	},
 	{
 		"name": "BLT",
@@ -12,5 +119,19 @@
 		"price": 5.99,
 		"type": "Sandwich",
 		"defaults": ["Provolone"]
+	},
+	{
+		"name": "Sides",
+		"acronym": "SD",
+		"price": 2.99,
+		"type": "Sides",
+		"defaults": [""]
+	},
+	{
+		"name": "Appetizers",
+		"acronym": "APP",
+		"price": 0.0,
+		"type": "App",
+		"defaults": [""]
 	}
 ]

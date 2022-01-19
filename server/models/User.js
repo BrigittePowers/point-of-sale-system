@@ -1,28 +1,23 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const Order = require('./Order');
 
-const userSchema = new Schema({
-	name: {
-		type: String,
+const userSchema = new Schema(
+	{
+		name: {
+			type: String,
+		},
+		password: {
+			type: Number,
+			required: true,
+			length: 4,
+		},
 	},
-	password: {
-		type: Number,
-		required: true,
-		length: 4,
+	{
+		toJSON: {
+			virtuals: true,
+		},
 	},
-	savedOrders: [Order.schema],
-});
-
-// set up pre-save middleware to create password
-userSchema.pre('save', async function (next) {
-	if (this.isNew || this.isModified('password')) {
-		const saltRounds = 10;
-		this.password = await bcrypt.hash(this.password, saltRounds);
-	}
-
-	next();
-});
+);
 
 // hash user password
 userSchema.pre('save', async function (next) {
@@ -38,11 +33,6 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
 	return bcrypt.compare(password, this.password);
 };
-
-// when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual('bookCount').get(function () {
-	return this.savedBooks.length;
-});
 
 const User = model('User', userSchema);
 

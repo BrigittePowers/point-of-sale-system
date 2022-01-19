@@ -15,6 +15,7 @@
 		"graphql-tag": "^2.11.0",
 		"jwt-decode": "^2.2.0",
 		"moment": "^2.29.1",
+		"pin-input": "^2.0.0",
 		"react": "^16.13.1",
 		"react-bootstrap": "^1.0.1",
 		"react-dom": "^16.13.1",

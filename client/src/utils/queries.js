@@ -1,5 +1,14 @@
 import { gql } from '@apollo/client';
 
+export const GET_ME = gql`
+	{
+		me {
+			_id
+			name
+		}
+	}
+`;
+
 export const QUERY_ITEMS = gql`
 	{
 		items {
@@ -8,6 +17,7 @@ export const QUERY_ITEMS = gql`
 			acronym
 			price
 			type
+			defaults
 			options {
 				_id
 				name

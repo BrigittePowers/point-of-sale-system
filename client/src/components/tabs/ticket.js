@@ -78,7 +78,6 @@ export default function Ticket({
 	};
 
 	const submitTicket = async (pay) => {
-		console.log('Submit Ticket');
 		let currentDate = new Date();
 		let time = currentDate.getHours() + ':' + currentDate.getMinutes();
 

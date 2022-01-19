@@ -14,6 +14,8 @@ export default function Dashboard() {
 	const [currentCat, setCat] = useState('None');
 	// set the menuItem that was clicked in Menu
 	const [selectedMenuItem, setSelectedMenuItem] = useState('');
+	// array of defaults on a menu item
+	const [selectedItemDef, setSelectedItemDef] = useState([]);
 	// form an array of the modifiers to the selected menu item
 	const [selectedMenuMod, setSelectedMenuMod] = useState([]);
 	// create an object from the menu item and its modifiers
@@ -65,6 +67,7 @@ export default function Dashboard() {
 	const handleCatChange = (cat) => setCat(cat);
 	const handleSelectedMenuItemChange = (menuItem) =>
 		setSelectedMenuItem(menuItem);
+	const handleSelectedItemDef = (def) => setSelectedItemDef(def);
 	const handleSelectedMenuMod = (menuMod) => setSelectedMenuMod(menuMod);
 	const handlePendingMenuCost = (item) => setPendingMenuCost(item);
 	const handlePendingModsCost = (item) => setPendingModsCost(item);
@@ -83,6 +86,7 @@ export default function Dashboard() {
 					handleCatChange={handleCatChange}
 					handleSelectedMenuItemChange={handleSelectedMenuItemChange}
 					handlePendingMenuCost={handlePendingMenuCost}
+					handleSelectedItemDef={handleSelectedItemDef}
 				/>
 			);
 		}
@@ -98,6 +102,7 @@ export default function Dashboard() {
 					pendingModsCost={pendingModsCost}
 					pendingMenuCost={pendingMenuCost}
 					pendingSubTotal={pendingSubTotal}
+					selectedItemDef={selectedItemDef}
 					handleSelectedMenuItemChange={handleSelectedMenuItemChange}
 					handleTabChange={handleTabChange}
 					handleCatChange={handleCatChange}

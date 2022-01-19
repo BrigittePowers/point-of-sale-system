@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //import pages
 import Home from './pages/Home';
-// import Login from './pages/Login';
+import Login from './pages/Login';
 //import components
 
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -29,7 +29,7 @@ function App() {
 				<>
 					<Switch>
 						<Route exact path='/' component={Home} />
-						{/* <Route exact path='/login' component={Login} /> */}
+						<Route exact path='/login' component={Login} />
 						<Route
 							render={() => (
 								<h1 className='display-2'>Wrong page!</h1>
