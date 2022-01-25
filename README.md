@@ -37,7 +37,7 @@ Tickt is a point-of-sale system designed with the user in mind. It's light-weigh
 - - ... lock order history by cashier
 - - ... adjust the menu from within the app
 - Process a payment
-- Properly implement JWT and auth (currently bugged)
+- Properly implement JWT and auth 
 
 ---
 
@@ -82,13 +82,6 @@ Submit a pull request (bug fixes only) or send an email. Writers and routers wel
 ## Copyrights
 
 This project Brigitte Powers as part of the Summer 2021 - SPRING 2022 UTSA Coding Bootcamp.
-
-
-_Special thanks to our instuctor and TAs for all his assistance and support._
-
-Dedicated to my mentors, Cayle Bray and Joshua Powers
-
-(wouldn't be this far without you guys)
 
 ### Live Q&A volunteers (thanks, guys!)
 -   Steven Irving
